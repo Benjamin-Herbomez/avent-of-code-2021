@@ -48,6 +48,7 @@ let resultWithSmall = result.filter(
   (path) =>
     path.find((v) => v != 'start' && v != 'end' && v.toLowerCase() == v) != null
 );
+
 console.log('result filter', resultWithSmall, resultWithSmall.length);
 
 function getAllPaths() {
@@ -115,5 +116,6 @@ function treeToArray(tree) {
 }
 
 function canAddToPath(value, pile) {
+  console.log(value, pile);
   return !pile.some((p) => p.v == value) || !pile.some((p) => p.nb > 1);
 }
