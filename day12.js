@@ -48,7 +48,7 @@ let resultWithSmall = result.filter(
   (path) =>
     path.find((v) => v != 'start' && v != 'end' && v.toLowerCase() == v) != null
 );
-console.log(resultWithSmall, resultWithSmall.length);
+console.log('result filter', resultWithSmall, resultWithSmall.length);
 
 function getAllPaths() {
   let tree = buildTree('start', []);
@@ -65,7 +65,7 @@ function buildTree(start, pile) {
     }
     let s = path[0].c == start ? path[0] : path[1];
     let e = path[0].c == start ? path[1] : path[0];
-    if (canAddToPath(e.c, pile)) {
+    if (!canAddToPath(e.c, pile)) {
       continue;
     }
 
