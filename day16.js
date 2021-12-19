@@ -51,7 +51,14 @@ let packet = decodePacket(bin)
 
 //console.log(util.inspect(packet, {showHidden: false, depth: null, colors: true}))
 //console.log(addVersion(packet))
+console.log(packet)
 console.log(compute(packet))
+console.log(packet.children.map(c => compute(c)))
+console.log(util.inspect(packet.children.slice(0,3).map(v=>({
+    packet: v, 
+    result: compute(v)
+})),
+{showHidden: false, depth: null, colors: true}))
 
 function addVersion(packet){
     let r = packet.version;
